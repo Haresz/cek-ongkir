@@ -11,12 +11,16 @@
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.0",
     "@phosphor-icons/react": "^2.1.7",
+    "@types/js-cookie": "^3.0.6",
+    "@types/uuid": "^10.0.0",
     "antd": "^5.19.2",
     "axios": "^1.7.2",
     "express": "^4.19.2",
+    "js-cookie": "^3.0.5",
     "next": "^14.2.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",

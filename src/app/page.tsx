@@ -1,18 +1,8 @@
 'use client';
 
+import LoginForm from '@/components/LoginForm';
 import 'antd/dist/reset.css';
-import Nav from '@/components/Nav';
-import ContentCekOngkir from '@/components/ContentCekOngkir';
-import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 
 export default function Home() {
-  const screens = useBreakpoint();
-  return (
-    <div className=" bg-white h-[100vh] ">
-      <Nav />
-      <div className={screens.sm ? 'mx-16 my-20' : 'mx-4 my-10'}>
-        <ContentCekOngkir />
-      </div>
-    </div>
-  );
+  return <LoginForm />;
 }

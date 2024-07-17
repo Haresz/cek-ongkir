@@ -1,16 +1,39 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { Button, Flex, Input } from 'antd';
+import { Button, Flex, Input, message } from 'antd';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import InputSelect from './InputSelect';
 import ShippingInfo from './ShippingInfo';
 import useCity from '@/hooks/useCity';
 import useCost from '@/hooks/useCost';
+import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
+
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    x: '-100vw',
+  },
+  in: {
+    opacity: 1,
+    x: 0,
+  },
+  out: {
+    opacity: 0,
+    x: '100vw',
+  },
+};
+
+const pageTransition = {
+  type: 'tween',
+  duration: 0.7,
+};
 
 export default function ContentCekOngkir() {
   const screens = useBreakpoint();
-  const { city, fetchCity, loading: loadingCity, error: errorCity } = useCity();
+  const { city, loading: loadingCity, error: errorCity } = useCity();
+  const router = useRouter();
 
   const {
     loading,
@@ -28,15 +51,31 @@ export default function ContentCekOngkir() {
   } = useCost();
 
   useEffect(() => {
-    console.log('City options:', city);
-  }, [city]);
+    const token = localStorage.getItem('token');
+    if (!token) {
+      message.error('Please login to access this page.');
+      router.push('/');
+    }
+  }, [router]);
 
   const handleSearch = () => {
-    postCostHooks();
+    const token = localStorage.getItem('token');
+    if (!token) {
+      message.error('Please login to perform this action.');
+      router.push('/');
+    } else {
+      postCostHooks();
+    }
   };
 
   return (
-    <>
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
       <Flex className="w-full" gap={8} wrap={screens.md ? 'nowrap' : 'wrap'}>
         <Flex className="w-full" gap={8}>
           <InputSelect
@@ -91,7 +130,7 @@ export default function ContentCekOngkir() {
         </Button>
       </Flex>
       {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-      <ShippingInfo cost={cost} />
-    </>
+      <ShippingInfo cost={cost} loading={loading} />
+    </motion.div>
   );
 }
