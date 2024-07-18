@@ -6,7 +6,7 @@ import Nav from '@/components/Nav';
 import ContentCekOngkir from '@/components/ContentCekOngkir';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 
-export default function page() {
+export default function Page() {
   const screens = useBreakpoint();
   return (
     <div className=" bg-white h-[100vh] ">
