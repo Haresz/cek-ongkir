@@ -113,6 +113,7 @@ export default function ContentCekOngkir() {
             options={[
               { label: 'JNE', value: 'jne' },
               { label: 'TIKI', value: 'tiki' },
+              { label: 'POS', value: 'pos' },
             ]}
             placeholder="Kurir"
             onChange={setCourier}
