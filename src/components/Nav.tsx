@@ -22,11 +22,9 @@ export default function Nav() {
       variants={navVariants}
       transition={navTransition}
     >
-      <Flex align="center" className="px-16 py-8 bg-orange-500">
+      <Flex align="center" className="container-nav">
         <Package size={42} />
-        <p className=" mb-0 ml-4 font-extrabold font-mono sm:text-4xl text-2xl">
-          Cek Paket
-        </p>
+        <p className="title-nav">Cek Paket</p>
       </Flex>
     </motion.div>
   );

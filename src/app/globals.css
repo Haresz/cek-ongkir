@@ -2,32 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.container-login {
+  @apply bg-white h-[100vh] w-[100vw] flex flex-col justify-center items-center gap-10;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.login-title {
+  @apply text-black font-extrabold font-mono text-5xl text-start mb-10;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.container-shipping {
+  @apply w-full my-10 px-8 py-6 border-2 rounded-md text-gray-700;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.container-nav {
+  @apply px-16 py-8 bg-orange-500;
+}
+
+.title-nav {
+  @apply mb-0 ml-4 font-extrabold font-mono sm:text-4xl text-2xl
 }

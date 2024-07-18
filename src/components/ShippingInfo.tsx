@@ -19,7 +19,7 @@ const ShippingInfo = ({ cost, loading }: any) => {
   const serviceDetails = shippingDetails.costs[0];
 
   return (
-    <div className="w-full my-10 px-8 py-6 border-2 rounded-md text-gray-700">
+    <div className="container-shipping">
       <Row justify="space-between">
         {loading ? (
           <Skeleton style={{ height: '100px' }} />

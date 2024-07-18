@@ -60,7 +60,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="bg-white h-[100vh] w-[100vw] flex flex-col justify-center items-center gap-10">
+    <div className="container-login">
       {contextHolder}
       <motion.div
         initial="hidden"
@@ -69,9 +69,7 @@ const LoginForm = () => {
         transition={formTransition}
         className="max-w-md mx-2 mb-[20vh]"
       >
-        <p className="text-black font-extrabold font-mono text-5xl text-start mb-10">
-          Login
-        </p>
+        <p className="login-title">Login</p>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
             value={username}
