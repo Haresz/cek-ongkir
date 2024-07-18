@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-const apikey = '8a9ec5364124d113a8b9ed149415d05c';
-
 export const getCity = () => {
   return axios.get(`https://harisekeke.vercel.app/api/kota`);
 };
